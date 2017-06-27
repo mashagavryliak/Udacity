@@ -5,5 +5,7 @@
 
 def clique(n):
     # Return the number of edges
-    # Try to use a mathematical formula...
     return n*(n-1)/2
+
+if __name__ == '__main__':
+    print clique(10)

@@ -7,20 +7,7 @@
 def mark_component(G, node, marked):
     open_list = [node]
     while open_list:
-        current_node = open_list.pop()
-        marked[current_node] = True
-        for neighbor in G[current_node]:
-            if neighbor not in marked:
-                open_list.append(neighbor)
-    return len(marked)
-
-
-def mark_component_new(G, node, marked):
-
-    open_list = [node]
-    while len(open_list) > 0:
-        current_node = open_list[0]
-        del open_list[0]
+        current_node = open_list.pop(0)
         marked[current_node] = True
         for neighbor in G[current_node]:
             if neighbor not in marked:
@@ -44,7 +31,7 @@ def test():
     for n1, n2 in test_edges:
         make_link(G, n1, n2)
     marked = {}
-    assert mark_component_new(G, 1, marked) == 3
+    assert mark_component(G, 1, marked) == 3
     assert 1 in marked
     assert 2 in marked
     assert 3 in marked
